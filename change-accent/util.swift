@@ -9,6 +9,9 @@
 import Foundation
 
 func getArgs(_ argSpecs: [String: Int]) -> [String: String] {
+    guard CommandLine.arguments.count > 1 else {
+        return [:]
+    }
     var args: [String: [String]] = [:]
     let specKeys = argSpecs.keys
     for i in 1...CommandLine.arguments.count-1 {

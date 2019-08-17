@@ -34,8 +34,18 @@ let colour = args["--accent"]
 if let colour = colour {
     if let accent = MacOSAccent(rawValue: colour) {
         setSystemAccent(accent: accent)
+    } else if colour.range(of: #"#\w{6}$"#, options: .regularExpression) != nil {
+        var differences: [MacOSAccent: Double] = [:]
+        MacOSAccent.allCases.forEach {
+            differences[$0] = colourDifference(color1: colour, color2: $0.hexColour())
+        }
+        if let closestColour = differences.min(by: { a, b in a.value < b.value }) {
+            print("Closest hex option found was \(closestColour.key.rawValue). Switching...")
+            setSystemAccent(accent: closestColour.key)
+        } else {
+            print("error: colour matching broke")
+        }
     } else {
-        // TODO: Attempt to find nearest colour using HEX values
         print("error: invalid colour")
         showUsage()
     }
