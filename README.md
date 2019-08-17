@@ -8,7 +8,10 @@ change-accent is a command line utility written in Swift to change the macOS Moj
 
 ###### Homebrew
 
-TODO: Add to Homebrew
+```
+brew tap epetousis/repo
+brew install change-accent
+```
 
 ###### Manually
 
