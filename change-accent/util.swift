@@ -12,21 +12,24 @@ func getArgs(_ argSpecs: [String: Int]) -> [String: String] {
     guard CommandLine.arguments.count > 1 else {
         return [:]
     }
+
     var args: [String: [String]] = [:]
-    let specKeys = argSpecs.keys
-    for i in 1...CommandLine.arguments.count-1 {
+    let argumentCount = CommandLine.arguments.count-1
+
+    for i in 1...argumentCount {
         let argument = CommandLine.arguments[i]
-        if (specKeys.contains(argument)) {
+
+        if let requiredArgQty = argSpecs[argument] {
             var values: [String] = args[argument] ?? []
-            if (argSpecs[argument]! <= 0) {
+            if (requiredArgQty <= 0) {
                 args[argument] = [""]
                 continue
             }
             
             // For each item starting from after this current one
-            // and the specified max in the argSpecs dictionary
-            for valIndex in i+1...i+argSpecs[argument]! {
-                guard valIndex+1 <= CommandLine.arguments.count && !specKeys.contains(CommandLine.arguments[valIndex]) else {
+            // to the specified limit in the argSpecs dictionary
+            for valIndex in i+1...i+requiredArgQty {
+                guard valIndex+1 <= CommandLine.arguments.count && !argSpecs.keys.contains(CommandLine.arguments[valIndex]) else {
                     // We've either hit the end of the arguments array,
                     // or we've encountered the next argument.
                     break
@@ -42,7 +45,7 @@ func getArgs(_ argSpecs: [String: Int]) -> [String: String] {
 }
 
 func setSystemAccent(accent: MacOSAccent) -> Void {
-    // NOTE: there are also preferences to dark mode
+    // NOTE: there are also preferences for dark mode
     // AppleInterfaceStyle = Dark; applies dark mode
     // AppleInterfaceStyleSwitchesAutomatically = 1; applies the auto dark mode setting
     let preferencesDict: [String: Any?] = [
