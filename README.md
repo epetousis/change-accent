@@ -36,7 +36,7 @@ Accepted colours for this option are:
 - green
 - graphite
 - blue
-- #<hex>
+- #[hex]
 
 You can also parse a hexadecimal colour beginning with a #. change-accent will attempt to use a simplistic [Euclidean](https://en.wikipedia.org/wiki/Color_difference#Euclidean) algorithm to attempt to find the accent colour with the shortest colour space distance to your desired colour, as macOS unfortunately appears to hardcode these accents in.
 
