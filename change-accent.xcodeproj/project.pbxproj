@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		62263CC72307AFE100E39F2F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62263CC62307AFE100E39F2F /* main.swift */; };
+		62263CCE2307C8AA00E39F2F /* MacOSAccent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62263CCD2307C8AA00E39F2F /* MacOSAccent.swift */; };
+		62263CD02307C97C00E39F2F /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62263CCF2307C97C00E39F2F /* util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		62263CC32307AFE100E39F2F /* change-accent */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "change-accent"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62263CC62307AFE100E39F2F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		62263CCD2307C8AA00E39F2F /* MacOSAccent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSAccent.swift; sourceTree = "<group>"; };
+		62263CCF2307C97C00E39F2F /* util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				62263CC62307AFE100E39F2F /* main.swift */,
+				62263CCD2307C8AA00E39F2F /* MacOSAccent.swift */,
+				62263CCF2307C97C00E39F2F /* util.swift */,
 			);
 			path = "change-accent";
 			sourceTree = "<group>";
@@ -120,7 +126,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62263CD02307C97C00E39F2F /* util.swift in Sources */,
 				62263CC72307AFE100E39F2F /* main.swift in Sources */,
+				62263CCE2307C8AA00E39F2F /* MacOSAccent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
