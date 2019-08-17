@@ -31,6 +31,8 @@
 		62263CCD2307C8AA00E39F2F /* MacOSAccent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSAccent.swift; sourceTree = "<group>"; };
 		62263CCF2307C97C00E39F2F /* util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
 		62B672CD2307FC9400720B20 /* colour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colour.swift; sourceTree = "<group>"; };
+		62B672CF2307FE3D00720B20 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		62B672D02308037500720B20 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,8 @@
 		62263CBA2307AFE100E39F2F = {
 			isa = PBXGroup;
 			children = (
+				62B672D02308037500720B20 /* LICENSE.txt */,
+				62B672CF2307FE3D00720B20 /* README.md */,
 				62263CC52307AFE100E39F2F /* change-accent */,
 				62263CC42307AFE100E39F2F /* Products */,
 			);

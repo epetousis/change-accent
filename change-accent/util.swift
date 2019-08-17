@@ -18,6 +18,11 @@ func getArgs(_ argSpecs: [String: Int]) -> [String: String] {
         let argument = CommandLine.arguments[i]
         if (specKeys.contains(argument)) {
             var values: [String] = args[argument] ?? []
+            if (argSpecs[argument]! <= 0) {
+                args[argument] = [""]
+                continue
+            }
+            
             // For each item starting from after this current one
             // and the specified max in the argSpecs dictionary
             for valIndex in i+1...i+argSpecs[argument]! {
@@ -28,7 +33,9 @@ func getArgs(_ argSpecs: [String: Int]) -> [String: String] {
                 }
                 values.append(CommandLine.arguments[valIndex])
             }
-            args[argument] = values
+            if values.count > 0 {
+                args[argument] = values
+            }
         }
     }
     return args.mapValues { $0.joined(separator: " ") }

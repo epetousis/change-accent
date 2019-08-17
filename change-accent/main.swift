@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AppKit
 
 func showUsage() {
     print("""
@@ -24,14 +25,22 @@ func showUsage() {
                 green
                 graphite
                 blue
-    Created by Evan Petousis
+        --license
+            Shows the license for this program.
+    Copyright © 2019 Evan Petousis
+    This program comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; use the --license argument for details.
     """)
 }
 
-let args = getArgs(["--accent": 1])
+let args = getArgs(["--accent": 1, "--license": 0])
 let colour = args["--accent"]
+let license = args["--license"]
 
-if let colour = colour {
+if license != nil {
+    NSWorkspace.shared.open(URL(string: "https://www.gnu.org/licenses/#GPL")!)
+} else if let colour = colour {
     if let accent = MacOSAccent(rawValue: colour) {
         setSystemAccent(accent: accent)
     } else if colour.range(of: #"#\w{6}$"#, options: .regularExpression) != nil {
