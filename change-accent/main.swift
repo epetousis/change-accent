@@ -9,6 +9,8 @@
 import Foundation
 import AppKit
 
+let VERSION = "0.0.2"
+
 func showUsage() {
     print("""
     USAGE:
@@ -34,12 +36,15 @@ func showUsage() {
     """)
 }
 
-let args = getArgs(["--accent": 1, "--license": 0])
+let args = getArgs(["--accent": 1, "--license": 0, "--version": 0])
 let colour = args["--accent"]
-let license = args["--license"]
+let wantsLicense = args["--license"] != nil
+let wantsVersion = args["--version"] != nil
 
-if license != nil {
+if wantsLicense {
     NSWorkspace.shared.open(URL(string: "https://www.gnu.org/licenses/#GPL")!)
+} else if wantsVersion {
+    print("change-accent: version \(VERSION)")
 } else if let colour = colour {
     if let accent = MacOSAccent(rawValue: colour) {
         setSystemAccent(accent: accent)
